@@ -1,0 +1,19 @@
+.todos-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #3c3c3c;
+    border-radius: 13px;
+    padding: 0 0 0 13px;
+    color: #ddd;
+}
+
+.container {
+    padding: 25px;
+    background-color: currentcolor;
+}
+
+.card-header {
+    padding-left: 0;
+    padding-right: 0;
+}
