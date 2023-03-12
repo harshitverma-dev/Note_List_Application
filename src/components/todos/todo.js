@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Card, Form, InputGroup } from 'react-bootstrap'
 import { AiOutlinePlusCircle, AiOutlineDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,10 @@ const Todo = () => {
     const [inputdata, setInputData] = useState("");
     const dispatch = useDispatch()
     const listData = useSelector((state) => state.todoReducers.todoList);
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(listData));
+    }, [listData])
 
     const handleChange = (e) => {
         setInputData(e.target.value)
@@ -45,7 +49,7 @@ const Todo = () => {
                     )
                 })
             }
-            { 
+            {
                 listData.length > 0 &&
                 <div className='clear-todo-btn mt-3'>
                     <Button variant="outline-secondary" className="float-end" onClick={() => dispatch(removeAllTodo())}>
